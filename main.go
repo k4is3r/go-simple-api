@@ -19,6 +19,10 @@ func CreatePersonEndpoint(w http.ResponseWriter, req *http.Request){
 
 }
 
+func DeletePersonEndpoint(w http.ResponseWriter, req *http.Request){
+
+}
+
 func main(){
   #routers
   router := mux.NewRouter()
@@ -29,5 +33,5 @@ func main(){
   router.HandleFunc("/people", GetPeopleEndpoint).Methods("GET")
   router.HandleFunc("/people/{id}", GetPersonEnpoint).Methods("GET")
   router.HandleFunc("/people/{id}", CreatePeopleEndpoint).Methods("POST")
-  router.HandleFunc("/people", GetPeopleEndpoint).Methods("GET")
+  router.HandleFunc("/people/{id}", DeletePeopleEndpoint).Methods("DELETE")
 }
