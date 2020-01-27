@@ -34,4 +34,8 @@ func main(){
   router.HandleFunc("/people/{id}", GetPersonEnpoint).Methods("GET")
   router.HandleFunc("/people/{id}", CreatePeopleEndpoint).Methods("POST")
   router.HandleFunc("/people/{id}", DeletePeopleEndpoint).Methods("DELETE")
+
+
+  #ListenHTTP
+  log.Fatal(http.ListenAndServe(":3000", router))
 }
