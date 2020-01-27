@@ -5,6 +5,7 @@ import (
   "log"
   "net/http"
   "github.com/gorilla/mux"
+  "fmt"
 )
 
 type Person struct {
@@ -39,8 +40,17 @@ func GetPersonEndpoint(w http.ResponseWriter, req *http.Request){
 }
 
 func CreatePersonEndpoint(w http.ResponseWriter, req *http.Request){
+  params := mux.Vars(req)
 
+  var person Person
+
+  _ = json.NewDecoder(req.Body).Decode(&person)
+
+  person.ID = params["id"]
+  people = append(people, person)
+  json.NewEncoder(w).Encode(people)
 }
+
 
 func DeletePersonEndpoint(w http.ResponseWriter, req *http.Request){
 
@@ -68,5 +78,8 @@ people = append(people, Person{ID: "5", FirstName: "Eduardo", LastName: "Wintetd
 
 
   //ListenHTTP
+  fmt.Println("Welcome to the API")
+  fmt.Println("API Listen in localhost:3000")
   log.Fatal(http.ListenAndServe(":3000", router))
+
 }
