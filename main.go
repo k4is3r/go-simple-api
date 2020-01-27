@@ -15,6 +15,9 @@ func GetPersonEndpoint(w http.ResponseWriter, req *http.Request){
 
 }
 
+func CreatePersonEndpoint(w http.ResponseWriter, req *http.Request){
+
+}
 
 func main(){
   #routers
@@ -25,6 +28,6 @@ func main(){
   #Endpoints
   router.HandleFunc("/people", GetPeopleEndpoint).Methods("GET")
   router.HandleFunc("/people/{id}", GetPersonEnpoint).Methods("GET")
-  router.HandleFunc("/people", GetPeopleEndpoint).Methods("GET")
+  router.HandleFunc("/people/{id}", CreatePeopleEndpoint).Methods("POST")
   router.HandleFunc("/people", GetPeopleEndpoint).Methods("GET")
 }
