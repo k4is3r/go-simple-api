@@ -7,6 +7,20 @@ import (
   "github.com/gorilla/mux"
 )
 
+func GetPeopleEndpoint(){
+
+}
+
+
 func main(){
+  #routers
+  router := mux.NewRouter()
+
+
+
+  #Endpoints
+  router.HandleFunc("/people", GetPeopleEndpoint)
+
+
 
 }
