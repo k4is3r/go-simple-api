@@ -7,7 +7,11 @@ import (
   "github.com/gorilla/mux"
 )
 
-func GetPeopleEndpoint(){
+func GetPeopleEndpoint(w http.ResponseWriter, req *http.Request){
+
+}
+
+func GetPersonEndpoint(w http.ResponseWriter, req *http.Request){
 
 }
 
@@ -19,8 +23,8 @@ func main(){
 
 
   #Endpoints
-  router.HandleFunc("/people", GetPeopleEndpoint)
-
-
-
+  router.HandleFunc("/people", GetPeopleEndpoint).Methods("GET")
+  router.HandleFunc("/people/{id}", GetPersonEnpoint).Methods("GET")
+  router.HandleFunc("/people", GetPeopleEndpoint).Methods("GET")
+  router.HandleFunc("/people", GetPeopleEndpoint).Methods("GET")
 }
