@@ -16,8 +16,8 @@ type Person struct {
 }
 
 type Address struct {
-  City string `json:"city.omitempty"`
-  State string `json:"state.omitempy"`
+  City string `json:"city,omitempty"`
+  State string `json:"state,omitempty"`
 }
 
 var people []Person
@@ -53,7 +53,15 @@ func CreatePersonEndpoint(w http.ResponseWriter, req *http.Request){
 
 
 func DeletePersonEndpoint(w http.ResponseWriter, req *http.Request){
+  params := mux.Vars(req)
+  for index, item := range people{
+    if item.ID == params["id"]{
+      people = append(people[:index], people[index+1:]...)
+      break
+    }
 
+  }
+ json.NewEncoder(w).Encode(people)
 }
 
 func main(){
