@@ -23,7 +23,7 @@ var people []Person
 
 
 func GetPeopleEndpoint(w http.ResponseWriter, req *http.Request){
-  
+ json.NewEncoder(w).Encode(people) 
 }
 
 func GetPersonEndpoint(w http.ResponseWriter, req *http.Request){
