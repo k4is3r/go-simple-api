@@ -89,5 +89,4 @@ people = append(people, Person{ID: "5", FirstName: "Eduardo", LastName: "Wintetd
   fmt.Println("Welcome to the API")
   fmt.Println("API Listen in localhost:3000")
   log.Fatal(http.ListenAndServe(":3000", router))
-
 }
