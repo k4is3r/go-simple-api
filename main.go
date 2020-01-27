@@ -11,7 +11,12 @@ type Person struct {
   ID string `json:"id,omitempty"`
   FirstName string `json:"firstname,omitempty"`
   LastName string `json:"lastname,omitempty"`
-  Address string `json:"id,omitempty"`
+  Address *Address `json:"address,omitempty"`
+}
+
+type Address struct {
+  City string `json:"city.omitempty"`
+  Stater string `json:"state.omitempy"`
 }
 
 func GetPeopleEndpoint(w http.ResponseWriter, req *http.Request){
