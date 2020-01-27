@@ -7,6 +7,13 @@ import (
   "github.com/gorilla/mux"
 )
 
+type Person struct {
+  ID string `json:"id,omitempty"`
+  FirstName string `json:"firstname,omitempty"`
+  LastName string `json:"lastname,omitempty"`
+  Address string `json:"id,omitempty"`
+}
+
 func GetPeopleEndpoint(w http.ResponseWriter, req *http.Request){
 
 }
